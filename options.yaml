@@ -1,0 +1,120 @@
+# SCAIe dropdown options
+# ---------------------------------------------------------------
+# Edit this file to change what students can pick.
+# - Keep the indentation (2 spaces) and the "- name:" pattern.
+# - Text after "description: |" can run over several lines; just keep it indented.
+# - Changes show up the next time the app reloads.
+
+settings:
+  ideas_per_run: 3              # how many project ideas per generation
+  max_generations_per_day: 10   # per student per day; stops one student using up the API credits
+  max_web_searches: 5           # web searches Claude may run per generation (US$10 per 1,000 searches)
+  model: claude-sonnet-5-5      # Claude model to use
+
+diplomas:
+  - name: Diploma in Accountancy & Finance
+    description: |
+      Brings together accountancy, finance, sustainability and technology. Students learn how
+      accountancy and finance drive growth, shape key decisions and create lasting value, including
+      the emerging role of finance in funding a sustainable, low-carbon future, with Singapore
+      leading this transformation.
+
+  - name: Diploma in Business
+    description: |
+      A future-oriented business curriculum with multidisciplinary, transferable skills for diverse
+      roles and industries in Singapore and the region. Industry partners include Enterprise Singapore,
+      National Heritage Board, PERSOL, SAP, SGTech, Singapore National Employers Federation, SHRM
+      and Workato.
+
+  - name: Diploma in Law and Management
+    description: |
+      Trains allied legal professionals. Theoretical and procedural law built on a business
+      foundation (communication, management, accounting, economics, technology, marketing), plus
+      innovation, entrepreneurship and Legal Technology applications. Supported by the Singapore
+      Academy of Law and the Law Society of Singapore, with an 18-week internship.
+
+  - name: Diploma in Chemical Engineering
+    description: |
+      Chemical engineers make clean energy, reduce waste, create eco-friendly chemicals, ensure clean
+      water and develop the formulation and processing of drugs and medicines. Mathematics, chemistry,
+      physics, biology and engineering applied to how raw materials become fuels, paints,
+      biodegradable plastics, medicines, cosmetics, personal care products, food and water.
+      Year 3 specialisations: Applied Chemistry, Sustainable Energy & Chemical Production,
+      Pharmaceuticals & Biologics Manufacturing, Semiconductor Technology, Technical Sales & Marketing.
+
+  - name: Diploma in Veterinary Technology
+    description: |
+      Trains veterinary technicians through theory and hands-on practice: animal husbandry,
+      anaesthesia monitoring and diagnostic testing at the TP Animal Clinic & Wellness facility.
+      Covers aquatic animals and pets, laboratory animal science, and responsible, humane animal care.
+      A foundation for marine science and aquaculture.
+
+  - name: Diploma in Cybersecurity & Digital Forensics
+    description: |
+      Learn to protect, secure and defend computing and information systems, applications and
+      networks, and to retrieve evidence, investigate causes and advise on preventing attacks after
+      a breach. Hands-on training in a cyber-range set up with the Ministry of Home Affairs and a
+      Malware Analysis Centre.
+
+  - name: Diploma in Information Technology
+    description: |
+      Strong programming and software development skills, using AI, data analytics and other
+      technologies to enhance applications. Electives include Financial Technologies (Fintech).
+      Industry links with DBS and Deloitte.
+
+themes:
+  - name: Urban Biodiversity & City in Nature
+    sdgs: "11, 13, 15"
+    areas: Urban wildlife, natural habitats, biodiversity conservation, green spaces, human–nature relationships
+
+  - name: Singapore's Food Security & Resilience
+    sdgs: "2, 12, 13"
+    areas: Food supply, food imports, local food production, food resilience, sustainable food sources
+
+  - name: Reducing Food Waste & Responsible Eating
+    sdgs: "2, 12, 13"
+    areas: Food waste, portion sizes, consumption habits, food disposal, responsible eating
+
+  - name: Sustainable Consumption & Circular Economy
+    sdgs: "8, 12, 13"
+    areas: Fast fashion, consumer behaviour, repair and reuse, sharing, upcycling, product life cycles
+
+  - name: Waste, Recycling & Sustainable Packaging
+    sdgs: "11, 12, 14"
+    areas: Recycling, waste separation, recycling contamination, single-use items, packaging, reusable alternatives
+
+  - name: Accessibility & Equal Opportunities
+    sdgs: "3, 4, 10, 11"
+    areas: Persons with disabilities and special needs, invisible disabilities, accessibility, equal participation, inclusive design
+
+  - name: Sustainable Transport & Urban Living
+    sdgs: "9, 11, 13"
+    areas: Public transport, active mobility, walking and cycling, first/last-mile travel, commuting, sustainable urban mobility
+
+  - name: Community Well-being & Social Sustainability
+    sdgs: "3, 10, 11, 12"
+    areas: Ageing population, social connection, intergenerational relationships, digital inclusion, community participation, community well-being
+
+  - name: Other (needs tutor approval)
+    sdgs: "Any relevant SDG"
+    areas: Any sustainability challenge in Singapore the student describes. Remind them it needs tutor approval.
+
+deliverables:
+  - name: Physical prototype or model
+    guidance: A simple physical model or working prototype the group can bring to class.
+  - name: 3D rendered model
+    guidance: 3D renders of a product, space or device, made with free tools like Tinkercad or SketchUp.
+  - name: Engineering diagram
+    guidance: Labelled diagrams showing how a system, process or device works.
+  - name: Building or space design plan
+    guidance: Floor plans or layouts for a space, room or building feature.
+  - name: App or website mock-up (3–5 screens)
+    guidance: 3 to 5 wireframe or mock-up screens, made with tools like Figma or Canva. It does not need to work.
+  - name: Infographic
+    guidance: One comprehensive infographic communicating the problem and solution.
+  - name: Social media posts (3 sets)
+    guidance: 3 sets of sample social media posts for a campaign.
+  - name: Short video (about 90 seconds)
+    guidance: A short video of about 90 seconds explaining or demonstrating the solution.
+  - name: Not sure yet
+    guidance: Suggest the deliverable format that best fits each idea, picked from the formats above.
