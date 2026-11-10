@@ -8,59 +8,39 @@
 settings:
   ideas_per_run: 3              # how many project ideas per generation
   max_generations_per_day: 10   # per student per day; stops one student using up the API credits
-  max_web_searches: 5           # web searches Claude may run per generation (US$10 per 1,000 searches)
-  model: claude-sonnet-5-5      # Claude model to use
+  model: gemini-flash-latest    # Gemini model; "gemini-flash-latest" always points to Google's current Flash model
 
 diplomas:
-  - name: Diploma in Accountancy & Finance
+  - name: Diploma in Early Childhood Development & Education
     description: |
-      Brings together accountancy, finance, sustainability and technology. Students learn how
-      accountancy and finance drive growth, shape key decisions and create lasting value, including
-      the emerging role of finance in funding a sustainable, low-carbon future, with Singapore
-      leading this transformation.
+      Recognised by the Early Childhood Development Agency (ECDA) and run with the National Institute
+      of Early Childhood Development (NIEC). Prepares students to be preschool educators for children
+      aged 18 months to 6 years. Covers child development, motor skills, language and literacy, early
+      numeracy, discovery of the world, aesthetics and creative expression, infant and toddler learning
+      environments, curriculum planning, and working with children with special needs, with practicums
+      in preschools. Tracks in Visual Arts (2D/3D art, digital media, children's book illustration) and
+      Malay Mother Tongue teaching. Graduates work as early childhood educators, or move into early
+      intervention, family services, curriculum development and play therapy.
 
-  - name: Diploma in Business
+  - name: Diploma in Psychology Studies
     description: |
-      A future-oriented business curriculum with multidisciplinary, transferable skills for diverse
-      roles and industries in Singapore and the region. Industry partners include Enterprise Singapore,
-      National Heritage Board, PERSOL, SAP, SGTech, Singapore National Employers Federation, SHRM
-      and Workato.
+      Builds a foundation in human behaviour and how to apply psychology in social services, special
+      needs education and research. Covers social, developmental and cognitive psychology, counselling,
+      special needs education, health psychology, abnormal psychology, community psychology, and
+      industrial and organisational psychology. Strong focus on research skills: survey design,
+      experimental design and statistics, with applied projects and a major project. Graduates work as
+      psychology or research assistants, social work associates, special education or early
+      intervention teachers, autism coaches, paracounsellors and youth workers.
 
-  - name: Diploma in Law and Management
+  - name: Diploma in Social Sciences in Gerontology
     description: |
-      Trains allied legal professionals. Theoretical and procedural law built on a business
-      foundation (communication, management, accounting, economics, technology, marketing), plus
-      innovation, entrepreneurship and Legal Technology applications. Supported by the Singapore
-      Academy of Law and the Law Society of Singapore, with an 18-week internship.
-
-  - name: Diploma in Chemical Engineering
-    description: |
-      Chemical engineers make clean energy, reduce waste, create eco-friendly chemicals, ensure clean
-      water and develop the formulation and processing of drugs and medicines. Mathematics, chemistry,
-      physics, biology and engineering applied to how raw materials become fuels, paints,
-      biodegradable plastics, medicines, cosmetics, personal care products, food and water.
-      Year 3 specialisations: Applied Chemistry, Sustainable Energy & Chemical Production,
-      Pharmaceuticals & Biologics Manufacturing, Semiconductor Technology, Technical Sales & Marketing.
-
-  - name: Diploma in Veterinary Technology
-    description: |
-      Trains veterinary technicians through theory and hands-on practice: animal husbandry,
-      anaesthesia monitoring and diagnostic testing at the TP Animal Clinic & Wellness facility.
-      Covers aquatic animals and pets, laboratory animal science, and responsible, humane animal care.
-      A foundation for marine science and aquaculture.
-
-  - name: Diploma in Cybersecurity & Digital Forensics
-    description: |
-      Learn to protect, secure and defend computing and information systems, applications and
-      networks, and to retrieve evidence, investigate causes and advise on preventing attacks after
-      a breach. Hands-on training in a cyber-range set up with the Ministry of Home Affairs and a
-      Malware Analysis Centre.
-
-  - name: Diploma in Information Technology
-    description: |
-      Strong programming and software development skills, using AI, data analytics and other
-      technologies to enhance applications. Electives include Financial Technologies (Fintech).
-      Industry links with DBS and Deloitte.
+      The only diploma in Singapore that prepares students to support and empower older adults of
+      different abilities, for careers in health, community and social services. Covers the anatomy,
+      physiology and psychology of ageing, mental health and dementia management, population health,
+      social policy on ageing, coaching and case management, counselling, community development with
+      older adults, and advance care planning and end-of-life issues. Graduates work as community care
+      executives, social work associates, programme and volunteer management executives, assistant
+      health coaches and assistant care coordinators.
 
 themes:
   - name: Urban Biodiversity & City in Nature
@@ -100,21 +80,7 @@ themes:
     areas: Any sustainability challenge in Singapore the student describes. Remind them it needs tutor approval.
 
 deliverables:
-  - name: Physical prototype or model
-    guidance: A simple physical model or working prototype the group can bring to class.
-  - name: 3D rendered model
-    guidance: 3D renders of a product, space or device, made with free tools like Tinkercad or SketchUp.
-  - name: Engineering diagram
-    guidance: Labelled diagrams showing how a system, process or device works.
-  - name: Building or space design plan
-    guidance: Floor plans or layouts for a space, room or building feature.
-  - name: App or website mock-up (3–5 screens)
-    guidance: 3 to 5 wireframe or mock-up screens, made with tools like Figma or Canva. It does not need to work.
-  - name: Infographic
-    guidance: One comprehensive infographic communicating the problem and solution.
-  - name: Social media posts (3 sets)
-    guidance: 3 sets of sample social media posts for a campaign.
-  - name: Short video (about 90 seconds)
-    guidance: A short video of about 90 seconds explaining or demonstrating the solution.
-  - name: Not sure yet
-    guidance: Suggest the deliverable format that best fits each idea, picked from the formats above.
+  - name: Physical prototype
+    guidance: A simple physical model or working prototype the group can build from low-cost materials and bring to class, e.g. a product, a kit, a game or a scale model.
+  - name: Digital prototype
+    guidance: 3 to 5 mock-up screens of an app, website or digital tool, made with free tools like Figma, Canva or Google Sites. It does not need to work fully.
