@@ -8,39 +8,66 @@
 settings:
   ideas_per_run: 3              # how many project ideas per generation
   max_generations_per_day: 10   # per student per day; stops one student using up the API credits
-  model: gemini-3.8-flash    # Gemini model; "gemini-flash-latest" always points to Google's current Flash model
+  # Free tier: google_search false + gemini-3.5-flash-lite (about 500 runs a day, no web search).
+  # Paid tier: google_search true + gemini-3.8-flash (real Singapore sources with links).
+  google_search: false
+  model: gemini-3.5-flash-lite  # Gemini model ID; check ai.google.dev/gemini-api/docs/changelog if it stops working
 
 diplomas:
-  - name: Diploma in Early Childhood Development & Education
+  - name: Common ICT Programme
     description: |
-      Recognised by the Early Childhood Development Agency (ECDA) and run with the National Institute
-      of Early Childhood Development (NIEC). Prepares students to be preschool educators for children
-      aged 18 months to 6 years. Covers child development, motor skills, language and literacy, early
-      numeracy, discovery of the world, aesthetics and creative expression, infant and toddler learning
-      environments, curriculum planning, and working with children with special needs, with practicums
-      in preschools. Tracks in Visual Arts (2D/3D art, digital media, children's book illustration) and
-      Malay Mother Tongue teaching. Graduates work as early childhood educators, or move into early
-      intervention, family services, curriculum development and play therapy.
+      A one-year common entry programme in the School of Informatics & IT, before students choose
+      a diploma (Applied AI, Big Data & Analytics, Cybersecurity & Digital Forensics, Immersive
+      Media & Game Development, or Information Technology). Students learn IT fundamentals:
+      computational thinking, data visualisation and analytics, cybersecurity basics, database and
+      application development, user experience and interface design, network and cloud technology.
+      These are first-year students with foundation-level skills only.
 
-  - name: Diploma in Psychology Studies
+  - name: Diploma in Applied Artificial Intelligence
     description: |
-      Builds a foundation in human behaviour and how to apply psychology in social services, special
-      needs education and research. Covers social, developmental and cognitive psychology, counselling,
-      special needs education, health psychology, abnormal psychology, community psychology, and
-      industrial and organisational psychology. Strong focus on research skills: survey design,
-      experimental design and statistics, with applied projects and a major project. Graduates work as
-      psychology or research assistants, social work associates, special education or early
-      intervention teachers, autism coaches, paracounsellors and youth workers.
+      Fundamental AI concepts and how to build smart applications for industries like healthcare,
+      education, transport and manufacturing. After a common IT foundation year, students learn
+      machine learning, deep learning, computer vision, natural language processing, conversational
+      AI (chatbots), generative AI systems, AI agents and automation, and AI ethics. Graduates work
+      as AI engineers, machine learning engineers, computer vision engineers, data analysts and
+      software developers.
 
-  - name: Diploma in Social Sciences in Gerontology
+  - name: Diploma in Big Data & Analytics
     description: |
-      The only diploma in Singapore that prepares students to support and empower older adults of
-      different abilities, for careers in health, community and social services. Covers the anatomy,
-      physiology and psychology of ageing, mental health and dementia management, population health,
-      social policy on ageing, coaching and case management, counselling, community development with
-      older adults, and advance care planning and end-of-life issues. Graduates work as community care
-      executives, social work associates, programme and volunteer management executives, assistant
-      health coaches and assistant care coordinators.
+      Using data and analytics tools to give organisations data-driven insights. After a common IT
+      foundation year, students learn data science, data mining and business analytics, data
+      storytelling, data warehousing and business intelligence, data engineering in the cloud,
+      quantitative analysis, machine learning for decision making, and text and social media
+      analytics. Graduates work as data analysts, business intelligence analysts, data engineers
+      and machine learning engineers.
+
+  - name: Diploma in Cybersecurity & Digital Forensics
+    description: |
+      Protecting and defending computer systems, applications and networks, and investigating
+      breaches by retrieving and reconstructing digital evidence. After a common IT foundation year,
+      students learn ethical hacking and intrusion prevention, network security, secure web
+      applications, digital forensics, incident response, and IT security management and audit,
+      with hands-on training in an operational technology security lab, a security operations
+      centre and a malware analysis centre. Graduates work as security operations analysts, cyber
+      risk analysts, forensic investigators, penetration testers and IT security auditors.
+
+  - name: Diploma in Immersive Media & Game Development
+    description: |
+      Creating games and interactive digital worlds, and using AR and VR for play, learning and work
+      (e.g. VR training in healthcare, AR in hospitality, serious games in education). After a
+      common IT foundation year, students learn game design and development with engines like
+      Unity, 3D modelling, AR app development, computer graphics, immersive UI/UX, and maths and
+      physics programming. Graduates work as game developers and designers, AR/VR developers, mobile
+      app developers and UI/UX designers.
+
+  - name: Diploma in Information Technology
+    description: |
+      Developing software solutions and AI-driven applications. After a common IT foundation year,
+      students learn full stack web development, mobile app development, cloud application
+      development, IoT (Internet of Things) application development, machine learning for
+      developers, application security, DevOps, and agile methodology and design thinking.
+      Electives include fintech and business analytics. Graduates work as application and mobile
+      developers, software engineers, DevOps engineers, systems analysts and UI/UX designers.
 
 themes:
   - name: Urban Biodiversity & City in Nature
