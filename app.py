@@ -10,6 +10,7 @@ from __future__ import annotations
 import io
 import json
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 from pathlib import Path
@@ -247,15 +248,58 @@ def _real_url(url: str) -> str:
         return url
 
 
+NO_SEARCH_NOTE = """
+
+## IMPORTANT: Google Search is switched off
+
+You cannot look anything up for this run, so ignore the instructions above about searching.
+- Don't present specific numbers or statistics as confirmed facts.
+- For each evidence point, tell the student what to look up and where: name the organisation
+  and the report or page (e.g. "NEA's waste statistics page: how much food waste Singapore
+  throws away each year"). Set source_number to 0.
+- Only name existing Singapore initiatives you are confident are real."""
+
+
+def _call(client, **kwargs):
+    """Calls Gemini, waiting and retrying briefly if it's busy (429/503)."""
+    for wait in (5, 15, None):
+        try:
+            return client.models.generate_content(**kwargs)
+        except genai_errors.APIError as e:
+            if e.code not in (429, 503) or wait is None:
+                raise
+            time.sleep(wait)
+
+
+def _schema() -> dict:
+    return {"type": "object", "required": ["ideas"],
+            "properties": {"ideas": {"type": "array", "items": IDEA_SCHEMA}}}
+
+
 def generate_ideas(inputs: dict, status) -> dict:
     """Returns {'ideas': [...], 'sources': [...], 'search_html': str}"""
     client = genai.Client(api_key=secret("GEMINI_API_KEY"))
-    model = SETTINGS.get("model", "gemini-flash-latest")
+    model = SETTINGS.get("model", "gemini-3.8-flash")
     num = int(SETTINGS.get("ideas_per_run", 3))
+
+    if not SETTINGS.get("google_search", True):
+        # free tier: one call, no web search, evidence given as "what to look up"
+        status.write("💡 Thinking up ideas…")
+        resp = _call(client, model=model, contents="Please generate my project ideas.",
+                     config=types.GenerateContentConfig(
+                         system_instruction=build_system_prompt(inputs) + NO_SEARCH_NOTE,
+                         response_mime_type="application/json",
+                         response_json_schema=_schema()))
+        ideas = json.loads(resp.text)["ideas"]
+        for idea in ideas:
+            for ev in idea.get("evidence", []):
+                ev["source_url"] = ""
+        return {"ideas": ideas, "sources": [], "search_html": ""}
 
     # 1. research with Google Search
     status.write("🔎 Searching Google for Singapore evidence…")
-    research = client.models.generate_content(
+    research = _call(
+        client,
         model=model,
         contents="Please research and write up my project ideas.",
         config=types.GenerateContentConfig(
@@ -277,7 +321,8 @@ def generate_ideas(inputs: dict, status) -> dict:
 
     # 2. organise into the fixed layout
     status.write("✍️ Organising your ideas…")
-    organised = client.models.generate_content(
+    organised = _call(
+        client,
         model=model,
         contents=ORGANISE_PROMPT.format(
             num_ideas=num,
@@ -287,8 +332,7 @@ def generate_ideas(inputs: dict, status) -> dict:
         ),
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
-            response_json_schema={"type": "object", "required": ["ideas"],
-                                  "properties": {"ideas": {"type": "array", "items": IDEA_SCHEMA}}},
+            response_json_schema=_schema(),
         ),
     )
     ideas = json.loads(organised.text)["ideas"]
@@ -544,7 +588,11 @@ def page_results(user: str) -> None:
                 status.update(label="Done! Here are your ideas.", state="complete", expanded=False)
             except genai_errors.APIError as e:
                 status.update(label="Something went wrong", state="error")
-                st.error(f"SCAIe couldn't reach Gemini ({e.code}). Please try again in a minute.")
+                if e.code == 429:
+                    st.error("SCAIe is busy right now (lots of people are using it, or today's "
+                             "free limit is used up). Please try again in a few minutes.")
+                else:
+                    st.error(f"SCAIe couldn't reach Gemini ({e.code}). Please try again in a minute.")
             except Exception as e:  # noqa: BLE001
                 status.update(label="Something went wrong", state="error")
                 st.error(str(e) or "Something went wrong. Please try again.")
