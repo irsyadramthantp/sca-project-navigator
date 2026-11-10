@@ -8,7 +8,7 @@
 settings:
   ideas_per_run: 3              # how many project ideas per generation
   max_generations_per_day: 10   # per student per day; stops one student using up the API credits
-  model: gemini-flash-latest    # Gemini model; "gemini-flash-latest" always points to Google's current Flash model
+  model: gemini-3.8-flash    # Gemini model; "gemini-flash-latest" always points to Google's current Flash model
 
 diplomas:
   - name: Diploma in Early Childhood Development & Education
